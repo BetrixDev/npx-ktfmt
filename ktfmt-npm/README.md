@@ -1,36 +1,59 @@
 # ktfmt npm package
 
-An npm wrapper for [ktfmt](https://github.com/facebook/ktfmt) - the Kotlin code formatter by Facebook.
+An npm package wrapper for [ktfmt](https://github.com/facebook/ktfmt) - the Kotlin code formatter by Facebook.
 
-This package allows you to easily install and use ktfmt as a global command-line tool through npm, without having to manually download and manage the JAR file.
+This package allows you to easily install and use ktfmt as a global command-line tool through pnpm, npm, or yarn, without having to manually download and manage the JAR file.
 
 ## Requirements
 
 - **Node.js**: Version 10.0.0 or higher
 - **Java**: Version 11 or higher (ktfmt requirement)
   - You can download Java from [Adoptium](https://adoptium.net/)
+- **pnpm** (recommended), npm, or yarn
 
 ## Installation
 
-### Global Installation (Recommended)
+### Using pnpm (Recommended)
+
+#### Global Installation
 
 To install ktfmt globally so you can use it from anywhere:
 
 ```bash
-npm install -g ktfmt
+pnpm add -g ktfmt
 ```
 
-### Local Installation
+#### Local Installation
 
 To install ktfmt as a development dependency in your project:
 
 ```bash
-npm install --save-dev ktfmt
+pnpm add -D ktfmt
 ```
 
 When installed locally, you can run it using:
 ```bash
-npx ktfmt [options] [files...]
+pnpm exec ktfmt [options] [files...]
+```
+
+### Using npm
+
+```bash
+# Global
+npm install -g ktfmt
+
+# Local
+npm install --save-dev ktfmt
+```
+
+### Using yarn
+
+```bash
+# Global
+yarn global add ktfmt
+
+# Local
+yarn add -D ktfmt
 ```
 
 ## Usage
@@ -94,6 +117,25 @@ execSync(`java -jar ${jarPath} --kotlinlang-style MyFile.kt`);
 
 ## Integration with Build Tools
 
+### package.json Scripts
+
+Add ktfmt to your package.json scripts:
+
+```json
+{
+  "scripts": {
+    "format": "ktfmt src/**/*.kt",
+    "format:check": "ktfmt --dry-run --set-exit-if-changed src/**/*.kt"
+  }
+}
+```
+
+Then run with:
+```bash
+pnpm run format
+pnpm run format:check
+```
+
 ### Gradle
 
 You can integrate ktfmt with Gradle using the [ktfmt-gradle](https://github.com/cortinico/ktfmt-gradle) plugin or [Spotless](https://github.com/diffplug/spotless):
@@ -124,6 +166,16 @@ git diff --cached --name-only --diff-filter=ACM | grep '\.kt$' | xargs ktfmt
 
 # Re-add formatted files
 git diff --cached --name-only --diff-filter=ACM | grep '\.kt$' | xargs git add
+```
+
+Or use with [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged):
+
+```json
+{
+  "lint-staged": {
+    "*.kt": "ktfmt"
+  }
+}
 ```
 
 ### VS Code Integration
@@ -159,15 +211,29 @@ If you get an error about Java not being found:
 
 If you get a permission error on Unix-like systems:
 ```bash
-chmod +x $(npm root -g)/ktfmt/bin/ktfmt
+chmod +x $(pnpm root -g)/ktfmt/bin/ktfmt
 ```
 
 ### Download Failed During Installation
 
 If the JAR download fails during installation:
 1. Check your internet connection
-2. Try clearing npm cache: `npm cache clean --force`
+2. Try clearing pnpm cache: `pnpm store prune`
 3. Manually download the JAR and place it in the package directory
+
+### Using with pnpm Workspaces
+
+If you're using pnpm workspaces, you can install ktfmt at the workspace root:
+
+```bash
+# At workspace root
+pnpm add -Dw ktfmt
+```
+
+Then use it in any workspace package:
+```bash
+pnpm exec ktfmt src/**/*.kt
+```
 
 ## How It Works
 

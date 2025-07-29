@@ -11,10 +11,12 @@ All notable changes to the ktfmt npm package will be documented in this file.
 - Node.js wrapper script for executing ktfmt
 - Programmatic API for accessing JAR path and version
 - Comprehensive documentation and examples
+- Full pnpm support with pnpm-lock.yaml
 
 ### Features
 - Wraps ktfmt version 0.56
 - Supports all ktfmt command-line options
-- Works with npm, yarn, and pnpm
+- Works with pnpm (recommended), npm, and yarn
 - Can be installed globally or locally
 - Minimal dependencies (pure Node.js implementation)
+- Optimized for pnpm workspaces

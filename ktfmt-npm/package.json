@@ -31,12 +31,15 @@
   "engines": {
     "node": ">=10.0.0"
   },
+  "packageManager": "pnpm@10.11.1",
   "files": [
     "bin/",
     "scripts/",
     "index.js",
     "README.md",
     "LICENSE",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    ".npmrc",
+    "PNPM_QUICKSTART.md"
   ]
 }
