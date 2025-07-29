@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Downloaded JAR file
+ktfmt.jar
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Build outputs
+dist/
+build/

@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+
+const { spawn } = require('child_process');
+const path = require('path');
+const fs = require('fs');
+
+// Get the jar file path
+const jarPath = path.join(__dirname, '..', 'ktfmt.jar');
+
+// Check if jar file exists
+if (!fs.existsSync(jarPath)) {
+  console.error('Error: ktfmt.jar not found. Please reinstall the package.');
+  console.error('Run: npm install -g ktfmt');
+  process.exit(1);
+}
+
+// Check if Java is installed
+const checkJava = spawn('java', ['-version'], { stdio: 'ignore' });
+checkJava.on('error', () => {
+  console.error('Error: Java is not installed or not in PATH.');
+  console.error('ktfmt requires Java 11 or higher to run.');
+  console.error('Please install Java from: https://adoptium.net/');
+  process.exit(1);
+});
+
+checkJava.on('close', (code) => {
+  if (code !== 0) {
+    console.error('Error: Failed to check Java version.');
+    process.exit(1);
+  }
+
+  // Get command line arguments (remove node and script name)
+  const args = process.argv.slice(2);
+
+  // Run ktfmt with the provided arguments
+  const ktfmt = spawn('java', ['-jar', jarPath, ...args], {
+    stdio: 'inherit',
+    shell: false
+  });
+
+  ktfmt.on('error', (err) => {
+    console.error('Error running ktfmt:', err.message);
+    process.exit(1);
+  });
+
+  ktfmt.on('close', (code) => {
+    process.exit(code || 0);
+  });
+});

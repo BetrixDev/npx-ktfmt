@@ -1,0 +1,47 @@
+# Source control
+.git/
+.gitignore
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Development files
+.editorconfig
+.eslintrc*
+.prettierrc*
+
+# Test files
+test/
+tests/
+__tests__/
+*.test.js
+*.spec.js
+
+# Documentation source files
+docs/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# The JAR file will be downloaded during postinstall
+ktfmt.jar
+
+# Keep these files in the package:
+# - package.json
+# - README.md
+# - LICENSE (if present)
+# - bin/
+# - scripts/

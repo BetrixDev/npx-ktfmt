@@ -1,0 +1,42 @@
+{
+  "name": "ktfmt",
+  "version": "0.56.0",
+  "description": "An npm wrapper for ktfmt - the Kotlin code formatter by Facebook",
+  "keywords": [
+    "kotlin",
+    "formatter",
+    "ktfmt",
+    "code-formatter",
+    "kotlin-formatter",
+    "facebook"
+  ],
+  "homepage": "https://github.com/facebook/ktfmt",
+  "bugs": {
+    "url": "https://github.com/facebook/ktfmt/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/ktfmt-npm.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Your Name <your.email@example.com>",
+  "main": "index.js",
+  "bin": {
+    "ktfmt": "./bin/ktfmt"
+  },
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "test": "node bin/ktfmt --version"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "files": [
+    "bin/",
+    "scripts/",
+    "index.js",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ]
+}
