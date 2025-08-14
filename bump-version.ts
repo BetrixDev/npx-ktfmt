@@ -31,7 +31,7 @@ async function bumpPackageJsonVersion(version: string) {
 
 async function getVersionFromPackageJson() {
   const packageJson = await readPackageJson();
-  return packageJson.version.replace(/^v/, "").replace("-ktfmt", "");
+  return packageJson.version.replace(/^v/, "");
 }
 
 function normalizeClocVersion(version: string) {
@@ -89,5 +89,5 @@ console.timeEnd("Downloaded asset");
 
 await Bun.write(jarPath, arrayBuffer);
 
-await bumpPackageJsonVersion(normalizedVersion + "-ktfmt");
+await bumpPackageJsonVersion(normalizedVersion);
 console.log("Done");

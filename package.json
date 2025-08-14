@@ -1,13 +1,14 @@
 {
   "name": "ktfmt",
   "type": "module",
-  "version": "0.56.0-ktfmt",
-  "main": "lib/ktfmt.jar",
+  "version": "0.0.0",
+  "main": "bin/ktfmt.js",
   "bin": {
-    "ktfmt": "lib/ktfmt.jar"
+    "ktfmt": "bin/ktfmt.js"
   },
   "files": [
-    "lib"
+    "lib",
+    "bin"
   ],
   "keywords": [
     "ktfmt",
