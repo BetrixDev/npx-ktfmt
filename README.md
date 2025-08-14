@@ -5,7 +5,7 @@ Format Kotlin code with ktfmt through the npm registry
 Usage is the same as the [ktfmt CLI](https://github.com/facebook/ktfmt)
 
 ```
-npx ktfmt
+npx ktfmt@latest
 ```
 
 Requirements
@@ -16,8 +16,8 @@ Examples
 
 ```bash
 # Format files
-npx ktfmt -kotlinlang-style -r src/**/*.kt
+npx ktfmt@latest -kotlinlang-style -r src/**/*.kt
 
 # Read from stdin / write to stdout
-cat MyFile.kt | npx ktfmt -
+cat MyFile.kt | npx ktfmt@latest -
 ```
