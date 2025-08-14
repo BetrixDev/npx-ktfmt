@@ -1,0 +1,29 @@
+{
+  "name": "ktfmt",
+  "type": "module",
+  "version": "0.0.0",
+  "main": "lib/ktfmt.jar",
+  "bin": {
+    "ktfmt": "lib/ktfmt.jar"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "ktfmt",
+    "kotlin",
+    "formatter",
+    "kotlin format",
+    "kotlin formatter"
+  ],
+  "scripts": {
+    "bump-version": "bun bump-version.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^24.2.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
