@@ -1,7 +1,7 @@
 {
   "name": "ktfmt",
   "type": "module",
-  "version": "0.56.0-ktfmt",
+  "version": "0.0.0",
   "main": "lib/ktfmt.jar",
   "bin": {
     "ktfmt": "lib/ktfmt.jar"
