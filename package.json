@@ -1,7 +1,7 @@
 {
   "name": "ktfmt",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.56.0",
   "main": "bin/ktfmt.js",
   "bin": {
     "ktfmt": "bin/ktfmt.js"
